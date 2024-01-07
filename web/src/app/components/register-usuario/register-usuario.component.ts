@@ -51,12 +51,9 @@ export class RegisterUsuarioComponent {
   agregarUsuario() {
     // Verifica si el formulario es válido antes de realizar la acción
     if (this.form.valid) {
-      const nuevoUsuarioConToken = {
-        ...this.form.value, // Copia los datos del formulario
-        token: this.loginService.getToken(), // Agrega el token al objeto
-      };
+      const nuevoUsuario = this.form.value;
 
-      this.usuarioService.createUsuario(nuevoUsuarioConToken).subscribe({
+      this.loginService.createUsuario(nuevoUsuario).subscribe({
         next: (v) => {
           console.log('Usuario agregado con éxito:', v);
           this.consultarTodosLosEmpleados();
