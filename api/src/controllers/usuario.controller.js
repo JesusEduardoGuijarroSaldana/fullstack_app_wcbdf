@@ -20,7 +20,7 @@ exports.getAllUser = async (req, res) => {
     // Verify the JWT token
     const decodedToken = jwt.verify(token, process.env.TOKEN_ACCESS);
     const loggedInUserId = decodedToken.id;
-    const loggedInUserEmail = decodedToken.correo;
+    const loggedInUserEmail = decodedToken.userEmail;
     const listadoUsuarios = await Usuario.find({
       createdBy: loggedInUserEmail,
     }).exec();
@@ -123,7 +123,7 @@ exports.addUser = async (req, res) => {
     // Verify the JWT token
     const decodedToken = jwt.verify(token, process.env.TOKEN_ACCESS);
     const loggedInUserId = decodedToken.id;
-    const loggedInUserEmail = decodedToken.correo;
+    const loggedInUserEmail = decodedToken.userEmail;
     if (
       nombre == undefined ||
       apellidos == undefined ||
