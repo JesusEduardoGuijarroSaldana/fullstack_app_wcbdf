@@ -8,7 +8,7 @@ import { Respuesta, Usuario } from '../interfaces/login.model';
   providedIn: 'root',
 })
 export class LoginserviceService {
-  private urlApi = ' http://localhost/socios/v1/users';
+  private urlApi = ' http://localhost/socios/v1/users/';
   private tokenKey = 'jwt';
 
   constructor(private http: HttpClient, private cookieService: CookieService) {}

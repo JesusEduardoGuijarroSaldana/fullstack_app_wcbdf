@@ -8,7 +8,7 @@ import { LoginserviceService } from './loginservice.service';
   providedIn: 'root',
 })
 export class EmpleadosService {
-  private urlApi = 'http://localhost/socios/v1/users';
+  private urlApi = 'http://localhost/socios/v1/users/';
 
   constructor(
     private http: HttpClient,
