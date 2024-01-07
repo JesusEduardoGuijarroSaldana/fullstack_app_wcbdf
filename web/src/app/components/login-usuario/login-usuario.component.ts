@@ -17,7 +17,7 @@ export class LoginUsuarioComponent {
     private router: Router
   ) {}
 
-  onSubmit() {
+  login() {
     if (!this.correo || !this.clave) {
       // Muestra un alert si el correo o la contraseña están vacíos
       alert('Error: Por favor, ingresa el correo y la contraseña.');
@@ -48,9 +48,13 @@ export class LoginUsuarioComponent {
       () => {
         // Verificar si hay un token después de la solicitud completa
         if (this.authService.getToken() === null) {
-          this.router.navigate(['/login']); // Redirigir a la página de inicio de sesión si no hay token
+          this.router.navigate(['']); // Redirigir a la página de inicio de sesión si no hay token
         }
       }
     );
+  }
+  register() {
+    console.log('Botón de registro clicado');
+    this.router.navigate(['/register']);
   }
 }
